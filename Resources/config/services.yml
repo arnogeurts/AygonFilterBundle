@@ -1,0 +1,13 @@
+parameters:
+    aygon_filter.filter_manager.class: Aygon\FilterBundle\Filter\FilterManager
+    aygon_filter.form_type.form_field_filter_extension.class: Aygon\FilterBundle\Form\Type\FormFieldFilterExtension
+    
+services:
+    filter:
+        class: %aygon_filter.filter_manager.class%
+        
+    aygon_filter.form_type.form_field_filter_extension:
+        class: %aygon_filter.form_type.form_field_filter_extension.class%
+        arguments: ['@filter']
+        tags:
+            - { name: form.type_extension, alias: field }

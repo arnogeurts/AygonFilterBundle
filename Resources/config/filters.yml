@@ -1,0 +1,56 @@
+parameters:
+    aygon_filter.filters.alphanumeric.class: Aygon\FilterBundle\Filter\Alphanumeric
+    aygon_filter.filters.lower_case.class: Aygon\FilterBundle\Filter\LowerCase
+    aygon_filter.filters.numeric.class: Aygon\FilterBundle\Filter\Numeric
+    aygon_filter.filters.strip_tags.class: Aygon\FilterBundle\Filter\StripTags
+    aygon_filter.filters.upper_case.class: Aygon\FilterBundle\Filter\UpperCase
+    aygon_filter.filters.telephone.class: Aygon\FilterBundle\Filter\Telephone
+    aygon_filter.filters.url.class: Aygon\FilterBundle\Filter\Url
+    
+services:        
+    aygon_filter.filters.alphanumeric:
+        class: %aygon_filter.filters.alphanumeric.class%
+        public: false
+        tags:
+            - { name: filter }
+          
+    aygon_filter.filters.lower_case:
+        class: %aygon_filter.filters.lower_case.class%
+        public: false
+        tags:
+            - { name: filter }
+          
+    aygon_filter.filters.numeric:
+        class: %aygon_filter.filters.numeric.class%
+        public: false
+        tags:
+            - { name: filter }
+          
+    aygon_filter.filters.strip_tags:
+        class: %aygon_filter.filters.strip_tags.class%
+        public: false
+        tags:
+            - { name: filter }
+          
+    aygon_filter.filters.upper_case:
+        class: %aygon_filter.filters.upper_case.class%
+        public: false
+        tags:
+            - { name: filter }
+            
+    aygon_filter.filters.telephone:
+        class: %aygon_filter.filters.telephone.class%
+        public: false
+        arguments: [%aygon_filter.filters.telephone.country_code%]
+        tags:
+            - { name: filter }
+          
+    aygon_filter.filters.url:
+        class: %aygon_filter.filters.url.class%
+        public: false
+        tags:
+            - { name: filter }
+          
+         
+        
+    
